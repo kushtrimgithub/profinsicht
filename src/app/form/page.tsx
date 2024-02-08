@@ -5,17 +5,15 @@ import StepOneForm from '@/components/StepOne';
 import Praxis from '@/components/Kooperationen';
 import Wissenschaft from '@/components/Praxisforschung';
 
-
 const Home = () => {
-  const [formData, setFormData] = useState<string[]>([]); // Assuming data is an array of strings
+  const [formData, setFormData] = useState([]);
   const [step, setStep] = useState(1);
 
-  const handleNextStep = (data: string[]) => { // Explicitly specifying type as string[]
+  const handleNextStep = (data) => {
     setFormData(data);
-    // No automatic step increase here
   };
 
-  const handleGeneratePDF = (data: string[]) => { // Assuming the PDF generation data is also an array of strings
+  const handleGeneratePDF = (data) => {
     // Implement PDF generation here
     console.log('Generating PDF with data:', data);
   };
@@ -27,9 +25,9 @@ const Home = () => {
           onNext={handleNextStep}
           onStepChange={(selectedOptions) => {
             // Update step based on selected options
-            if (selectedOptions.includes('Wissenschaft')) {
+            if (selectedOptions.includes('Praxisforschung')) {
               setStep(2);
-            } else if (selectedOptions.includes('Praxis')) {
+            } else if (selectedOptions.includes('Kooperationen')) {
               setStep(3);
             }
           }}
@@ -46,4 +44,3 @@ const Home = () => {
 };
 
 export default Home;
-
