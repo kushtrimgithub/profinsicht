@@ -5,15 +5,20 @@ import StepOneForm from '@/components/StepOne';
 import Praxis from '@/components/Kooperationen';
 import Wissenschaft from '@/components/Praxisforschung';
 
+// Define a type for the data parameter
+interface FormData {
+  // Define the structure of your data here
+}
+
 const Home = () => {
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState<FormData>([]); // Specify the type here
   const [step, setStep] = useState(1);
 
-  const handleNextStep = (data) => {
+  const handleNextStep = (data: FormData) => { // Specify the type here
     setFormData(data);
   };
 
-  const handleGeneratePDF = (data) => {
+  const handleGeneratePDF = (data: FormData) => { // Specify the type here
     // Implement PDF generation here
     console.log('Generating PDF with data:', data);
   };
