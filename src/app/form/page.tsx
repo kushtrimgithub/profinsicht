@@ -1,22 +1,19 @@
+"use client";
+
 import { useState } from 'react';
 import StepOneForm from '@/components/StepOne';
 import Praxis from '@/components/Kooperationen';
 import Wissenschaft from '@/components/Praxisforschung';
 
-// Define a type/interface for your form data
-interface FormData {
-  // Define the structure of your form data here
-}
-
 const Home = () => {
-  const [formData, setFormData] = useState<FormData[]>([]); // Provide type annotation for useState
-  const [step, setStep] = useState<number>(1); // Provide type annotation for useState
+  const [formData, setFormData] = useState([]);
+  const [step, setStep] = useState(1);
 
-  const handleNextStep = (data: FormData) => { // Provide type annotation for handleNextStep
+  const handleNextStep = (data) => {
     setFormData(data);
   };
 
-  const handleGeneratePDF = (data: FormData) => { // Provide type annotation for handleGeneratePDF
+  const handleGeneratePDF = (data) => {
     // Implement PDF generation here
     console.log('Generating PDF with data:', data);
   };
