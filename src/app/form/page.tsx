@@ -1,19 +1,22 @@
-"use client";
-
 import { useState } from 'react';
 import StepOneForm from '@/components/StepOne';
 import Praxis from '@/components/Kooperationen';
 import Wissenschaft from '@/components/Praxisforschung';
 
-const Home = () => {
-  const [formData, setFormData] = useState([]);
-  const [step, setStep] = useState(1);
+// Define a type/interface for your form data
+interface FormData {
+  // Define the structure of your form data here
+}
 
-  const handleNextStep = (data) => {
+const Home = () => {
+  const [formData, setFormData] = useState<FormData[]>([]); // Provide type annotation for useState
+  const [step, setStep] = useState<number>(1); // Provide type annotation for useState
+
+  const handleNextStep = (data: FormData) => { // Provide type annotation for handleNextStep
     setFormData(data);
   };
 
-  const handleGeneratePDF = (data) => {
+  const handleGeneratePDF = (data: FormData) => { // Provide type annotation for handleGeneratePDF
     // Implement PDF generation here
     console.log('Generating PDF with data:', data);
   };
@@ -24,7 +27,6 @@ const Home = () => {
         <StepOneForm
           onNext={handleNextStep}
           onStepChange={(selectedOptions) => {
-            // Update step based on selected options
             if (selectedOptions.includes('Praxisforschung')) {
               setStep(2);
             } else if (selectedOptions.includes('Kooperationen')) {
